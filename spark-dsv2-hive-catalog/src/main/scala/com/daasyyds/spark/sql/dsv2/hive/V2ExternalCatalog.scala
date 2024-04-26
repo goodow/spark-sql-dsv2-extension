@@ -76,6 +76,7 @@ class V2ExternalCatalog extends TableCatalog with SupportsNamespaces with SQLCon
       () => ss.sharedState.globalTempViewManager,
       null,
       null,
+      null,
       hadoopConf,
       null,
       ss.sessionState.resourceLoader
