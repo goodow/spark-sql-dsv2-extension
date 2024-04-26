@@ -16,11 +16,11 @@ object ConfHelper {
     .transform(_.toLowerCase(Locale.ROOT))
     .checkValues(Set("classpath", "path"))
     .createWithDefault("path")
-  val HIVE_SITE_FILE_CLASSPATH = conf.buildConf("hive.conf.classpath")
+  val HIVE_SITE_FILE_CLASSPATH = conf.buildConf("spark.sql.hive.conf.classpath")
     .doc("a classpath will be used to initialize the hive v2 catalog, ex: v2/hive-site.xml")
     .stringConf
     .createOptional
-  val HIVE_SITE_FILE_PATH = conf.buildConf("hive.conf.path")
+  val HIVE_SITE_FILE_PATH = conf.buildConf("spark.sql.hive.conf.path")
     .doc("a local path will be used to initialize the hive v2 catalog, ex: /etc/hive/conf.v2/hive-site.xml")
     .stringConf
     .createOptional

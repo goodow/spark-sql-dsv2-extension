@@ -23,7 +23,7 @@
     <groupId>com.daasyyds.spark</groupId>
     <artifactId>spark-sql-dsv2-extension</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.2-SNAPSHOT</version>
+    <version>3.1.3-SNAPSHOT</version>
     <description>Some datasource v2 extension customized on spark sql</description>
     <url>https://github.com/permanentstar/spark-sql-dsv2-extension</url>
     <name>spark-sql-dsv2-extension</name>
@@ -60,7 +60,7 @@
         <java.version>1.8</java.version>
         <scala.version>2.12.10</scala.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <spark.version>3.1.2</spark.version>
+        <spark.version>3.1.3</spark.version>
         <skipTests>true</skipTests>
         <scala.maven.plugin.version>4.3.1</scala.maven.plugin.version>
         <nexus.staging.maven.plugin.version>1.6.7</nexus.staging.maven.plugin.version>
