@@ -21,6 +21,8 @@ import org.apache.spark.sql.connector.write.{LogicalWriteInfo, WriteBuilder}
 import org.apache.spark.sql.execution.datasources.{FileStatusCache, InMemoryFileIndex}
 import org.apache.spark.sql.execution.datasources.v2.csv.CSVScanBuilder
 import org.apache.spark.sql.execution.datasources.v2.json.JsonScanBuilder
+import org.apache.spark.sql.execution.datasources.v2.orc.OrcScanBuilder
+import org.apache.spark.sql.execution.datasources.v2.parquet.ParquetScanBuilder
 import org.apache.spark.sql.hive.InternalHiveBridge.hiveClientImpl
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.sql.types._
@@ -63,6 +65,8 @@ private[hive] class V2Table(val catalogName: String, val v2Catalog: V2ExternalCa
       case Some(f) if f == "json" => new JsonScanBuilder(ss, fileIndex, delegate.schema, dataSchema, options)
       case Some(f) if f == "csv" => CSVScanBuilder(ss, fileIndex, delegate.schema, dataSchema, options)
       case Some(f) if f == "hive" => HiveFileFormatReadBuilder(ss, fileIndex, delegate.schema, dataSchema, this)
+      case Some(f) if f == "parquet" => ParquetScanBuilder(ss, fileIndex, delegate.schema, dataSchema, options)
+      case Some(f) if f == "orc" => OrcScanBuilder(ss, fileIndex, delegate.schema, dataSchema, options)
       case _ => throw new IllegalArgumentException(s"Datasource V2 Scan not support provider ${provider.getOrElse("NULL")} currently..")
     }
   }
